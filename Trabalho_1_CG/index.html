@@ -1,0 +1,75 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Aincraft</title>
+    <meta name="description" content="Aincraft">
+    <!-- Biblioteca para criar cenas -->
+    <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
+    <!-- Permite movimentar-se pela cena -->
+    <script src="https://unpkg.com/aframe-teleport-controls@0.2.0/dist/aframe-teleport-controls.min.js"></script>
+    <!-- Adiciona cursores interativos nos controladores VR -->
+    <script
+        src="https://unpkg.com/aframe-controller-cursor-component@0.2.2/dist/aframe-controller-cursor-component.min.js"></script>
+    <!-- Biblioteca para captura e reprodução de movimentos na cena -->
+    <script src="https://rawgit.com/dmarcos/aframe-motion-capture/master/dist/aframe-motion-capture.min.js"></script>
+    <!-- Adicionam funcionalidades personalizadas à experiência -->
+    <script src="components/intersection-spawn.js"></script>
+    <script src="components/random-color.js"></script>
+    <script src="components/snap.js"></script>
+</head>
+
+<body>
+    <a-scene avatar-recorder>
+        <!-- Carrega alguns recursos como texturas e um mixin voxel  -->
+        <a-assets>
+            <img id="texturaCeu"
+                src="https://upload.wikimedia.org/wikipedia/commons/e/eb/Solarsystemscope_texture_8k_stars.jpg">
+            <img id="texturaSaturno"
+                src="https://upload.wikimedia.org/wikipedia/commons/1/1e/Solarsystemscope_texture_8k_saturn.jpg">
+            <img id="texturaAnel"
+                src="https://www.americanscientist.org/sites/americanscientist.org/files/2017-105-6-tiscareno-3-figcap.jpg">
+            <a-mixin id="voxel" geometry="primitive: box; height: 0.5; width: 0.5; depth: 0.5"
+                material="shader: standard" random-color snap="offset: 0.25 0.25 0.25; snap: 0.5 0.5 0.5"></a-mixin>
+        </a-assets>
+
+        <!-- Cria o ceu da cena utilizando a textura  -->
+        <a-sky id="bg" src="#texturaCeu"></a-sky>
+
+        <!-- Desenho de Saturno -->
+        <!-- Corpo do planeta -->
+        <a-sphere id="CorpoSaturno" position="0 3 0" radius="1.5" src="#texturaSaturno"
+            material="repeat: 1 1"></a-sphere>
+
+        <!-- Anéis do planeta -->
+        <a-torus id="AnelSaturno" position="0 3 0" radius="2.0" radius-tubular="0.04" rotation="90 0 0"
+            color="#EDD4A7"></a-torus>
+        <a-torus id="AnelSaturno" position="0 3 0" radius="2.1" radius-tubular="0.04" rotation="90 0 0"
+            color="#ACA787"></a-torus>
+        <a-torus id="AnelSaturno" position="0 3 0" radius="2.2" radius-tubular="0.04" rotation="90 0 0"
+            color="#B4A481"></a-torus>
+        <a-torus id="AnelSaturno" position="0 3 0" radius="2.3" radius-tubular="0.04" rotation="90 0 0"
+            color="#B8A586"></a-torus>
+        <a-torus id="AnelSaturno" position="0 3 0" radius="2.4" radius-tubular="0.04" rotation="90 0 0"
+            color="#EAD4A5"></a-torus>
+        <a-torus id="AnelSaturno" position="0 3 0" radius="2.5" radius-tubular="0.04" rotation="90 0 0"
+            color="#F1D8AC"></a-torus>
+        <a-torus id="AnelSaturno" position="0 3 0" radius="2.6" radius-tubular="0.04" rotation="90 0 0"
+            color="#B5A482"></a-torus>
+
+
+
+        <!-- Hands. -->
+        <a-entity id="teleHand" hand-controls="left"
+            teleport-controls="type: parabolic; collisionEntities: [mixin='voxel'], #ground"></a-entity>
+
+        <a-entity id="blockHand" hand-controls="right" controller-cursor
+            intersection-spawn="event: click; mixin: voxel"></a-entity>
+
+        <!-- Camera e controle de rotação -->
+        <a-entity position="0 4 5" camera look-controls orbit-controls="target: 0 3 0; autoRotate: true;">
+        </a-entity>
+    </a-scene>
+</body>
+
+</html>
