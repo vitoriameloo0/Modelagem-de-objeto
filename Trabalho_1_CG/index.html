@@ -4,16 +4,13 @@
     <meta charset="utf-8">
     <title>Aincraft</title>
     <meta name="description" content="Aincraft">
-    <!-- Biblioteca para criar cenas -->
+    
     <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
-    <!-- Permite movimentar-se pela cena -->
     <script src="https://unpkg.com/aframe-teleport-controls@0.2.0/dist/aframe-teleport-controls.min.js"></script>
-    <!-- Adiciona cursores interativos nos controladores VR -->
     <script
         src="https://unpkg.com/aframe-controller-cursor-component@0.2.2/dist/aframe-controller-cursor-component.min.js"></script>
-    <!-- Biblioteca para captura e reprodução de movimentos na cena -->
     <script src="https://rawgit.com/dmarcos/aframe-motion-capture/master/dist/aframe-motion-capture.min.js"></script>
-    <!-- Adicionam funcionalidades personalizadas à experiência -->
+    <script src="https://cdn.jsdelivr.net/npm/aframe-physics-system@4.0.1/dist/aframe-physics-system.min.js"></script>
     <script src="components/intersection-spawn.js"></script>
     <script src="components/random-color.js"></script>
     <script src="components/snap.js"></script>
@@ -34,29 +31,42 @@
         </a-assets>
 
         <!-- Cria o ceu da cena utilizando a textura  -->
-        <a-sky id="bg" src="#texturaCeu"></a-sky>
+        <a-sky id="bg" src="#texturaCeu">
+            <a-animation attribute="rotation" dur="200000" to="0 360 0" repeat="indefinite" easing="linear"></a-animation>
+        </a-sky>
 
         <!-- Desenho de Saturno -->
-        <!-- Corpo do planeta -->
-        <a-sphere id="CorpoSaturno" position="0 3 0" radius="1.5" src="#texturaSaturno"
-            material="repeat: 1 1"></a-sphere>
+         <a-entity id="saturno" >
+            <!-- Planeta -->
+            <a-entity id="planeta" >
+            <a-sphere id="CorpoSaturno" position="0 3 0" radius="1.5" src="#texturaSaturno"
+                material="repeat: 1 1"></a-sphere>
+            </a-entity>
 
-        <!-- Anéis do planeta -->
-        <a-torus id="AnelSaturno" position="0 3 0" radius="2.0" radius-tubular="0.04" rotation="90 0 0"
-            color="#EDD4A7"></a-torus>
-        <a-torus id="AnelSaturno" position="0 3 0" radius="2.1" radius-tubular="0.04" rotation="90 0 0"
-            color="#ACA787"></a-torus>
-        <a-torus id="AnelSaturno" position="0 3 0" radius="2.2" radius-tubular="0.04" rotation="90 0 0"
-            color="#B4A481"></a-torus>
-        <a-torus id="AnelSaturno" position="0 3 0" radius="2.3" radius-tubular="0.04" rotation="90 0 0"
-            color="#B8A586"></a-torus>
-        <a-torus id="AnelSaturno" position="0 3 0" radius="2.4" radius-tubular="0.04" rotation="90 0 0"
-            color="#EAD4A5"></a-torus>
-        <a-torus id="AnelSaturno" position="0 3 0" radius="2.5" radius-tubular="0.04" rotation="90 0 0"
-            color="#F1D8AC"></a-torus>
-        <a-torus id="AnelSaturno" position="0 3 0" radius="2.6" radius-tubular="0.04" rotation="90 0 0"
-            color="#B5A482"></a-torus>
 
+            <!-- Anéis do planeta -->
+            <a-entity id="anel">
+            
+            <a-torus id="AnelSaturno1" position="0 3 0" radius="2.0" radius-tubular="0.04" rotation="90 0 0"
+                color="#EDD4A7"></a-torus>
+            <a-torus id="AnelSaturno2" position="0 3 0" radius="2.1" radius-tubular="0.04" rotation="90 0 0"
+                color="#C48E39"></a-torus>
+            <a-torus id="AnelSaturno3" position="0 3 0" radius="2.2" radius-tubular="0.04" rotation="90 0 0"
+                color="#CF9B40"></a-torus>
+            <a-torus id="AnelSaturno4" position="0 3 0" radius="2.3" radius-tubular="0.04" rotation="90 0 0"
+                color="#5E4018"></a-torus>
+            <a-torus id="AnelSaturno5" position="0 3 0" radius="2.4" radius-tubular="0.04" rotation="90 0 0"
+                color="#755735"></a-torus>
+            <a-torus id="AnelSaturno6" position="0 3 0" radius="2.5" radius-tubular="0.04" rotation="90 0 0"
+                color="#45280C"></a-torus>
+            <a-torus id="AnelSaturno7" position="0 3 0" radius="2.6" radius-tubular="0.04" rotation="90 0 0"
+                color="#442B05"></a-torus>
+
+            </a-entity>
+
+            <a-animation attribute="rotation" dur="9000" to="0 -360 0" repeat="indefinite" easing="linear"></a-animation>
+            
+        </a-entity>
 
 
         <!-- Hands. -->
