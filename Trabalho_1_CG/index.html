@@ -2,9 +2,9 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Aincraft</title>
-    <meta name="description" content="Aincraft">
-    
+    <title>Sistema Solar</title>
+    <meta name="description" content="Sistema Solar">
+
     <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
     <script src="https://unpkg.com/aframe-teleport-controls@0.2.0/dist/aframe-teleport-controls.min.js"></script>
     <script
@@ -22,63 +22,149 @@
         <a-assets>
             <img id="texturaCeu"
                 src="https://upload.wikimedia.org/wikipedia/commons/e/eb/Solarsystemscope_texture_8k_stars.jpg">
+
+            <img id="texturaSol"
+                src="https://upload.wikimedia.org/wikipedia/commons/c/cb/Solarsystemscope_texture_2k_sun.jpg">
+
+            <img id="texturaMercurio"
+                src="https://upload.wikimedia.org/wikipedia/commons/9/92/Solarsystemscope_texture_2k_mercury.jpg">
+
+            <img id="texturaVenus"
+                src="https://upload.wikimedia.org/wikipedia/commons/1/1c/Solarsystemscope_texture_8k_venus_surface.jpg">
+
+            <img id="texturaTerra"
+                src="https://upload.wikimedia.org/wikipedia/commons/0/04/Solarsystemscope_texture_8k_earth_daymap.jpg">
+
+            <img id="texturaMarte"
+                src="https://upload.wikimedia.org/wikipedia/commons/4/46/Solarsystemscope_texture_2k_mars.jpg">
+
+            <img id="texturaJupiter"
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/PIA02863_-_Jupiter_surface_motion_animation.gif/1200px-PIA02863_-_Jupiter_surface_motion_animation.jpg">
+
             <img id="texturaSaturno"
                 src="https://upload.wikimedia.org/wikipedia/commons/1/1e/Solarsystemscope_texture_8k_saturn.jpg">
+
             <img id="texturaAnel"
                 src="https://www.americanscientist.org/sites/americanscientist.org/files/2017-105-6-tiscareno-3-figcap.jpg">
-            <a-mixin id="voxel" geometry="primitive: box; height: 0.5; width: 0.5; depth: 0.5"
-                material="shader: standard" random-color snap="offset: 0.25 0.25 0.25; snap: 0.5 0.5 0.5"></a-mixin>
+
+            <img id="texturaUrano"
+                src="https://upload.wikimedia.org/wikipedia/commons/9/95/Solarsystemscope_texture_2k_uranus.jpg">
+
+            <img id="texturaNetuno"
+                src="https://upload.wikimedia.org/wikipedia/commons/1/1e/Solarsystemscope_texture_2k_neptune.jpg">
+
         </a-assets>
+
+        <!-- Plano para teleporte -->
+        <a-plane id="ground" position="0 0 0" rotation="-90 0 0" width="100" height="100" color="#fff"
+            visible="false"></a-plane>
+
 
         <!-- Cria o ceu da cena utilizando a textura  -->
         <a-sky id="bg" src="#texturaCeu">
-            <a-animation attribute="rotation" dur="200000" to="0 360 0" repeat="indefinite" easing="linear"></a-animation>
+            <a-animation attribute="rotation" dur="300000" to="0 -360 0" repeat="indefinite"
+                easing="linear"></a-animation>
         </a-sky>
 
-        <!-- Desenho de Saturno -->
-         <a-entity id="saturno" >
-            <!-- Planeta -->
-            <a-entity id="planeta" >
-            <a-sphere id="CorpoSaturno" position="0 3 0" radius="1.5" src="#texturaSaturno"
-                material="repeat: 1 1"></a-sphere>
-            </a-entity>
+        <!--              CRIAR OS PLANETAS             -->
 
+        <!-- Desenho de Sol -->
+        <a-entity id="sol">
+            <a-sphere id="CorpoSol" position="0 3 0" radius="4.5" src="#texturaSol" material="repeat: 1 1"></a-sphere>
+            <a-animation attribute="rotation" dur="5000" to="0 360 0" repeat="indefinite"></a-animation>
+        </a-entity>
+
+        <!-- Desenho de Mercurio -->
+        <a-entity id="mercurio">
+            <a-sphere id="CorpoMercurio" position="11 3 0" radius="0.4" src="#texturaMercurio"
+                material="repeat: 1 1"></a-sphere>
+            <a-animation attribute="rotation" dur="5000" to="0 360 0" repeat="indefinite"></a-animation>
+        </a-entity>
+
+        <!-- Desenho de Venus -->
+        <a-entity id="venus">
+            <a-sphere id="CorpoVenus" position="17 3 0" radius="0.8" src="#texturaVenus"
+                material="repeat: 1 1"></a-sphere>
+            <a-animation attribute="rotation" dur="6000" to="0 360 0" repeat="indefinite"></a-animation>
+        </a-entity>
+
+        <!-- Desenho de Terra -->
+        <a-entity id="terra">
+            <a-sphere id="CorpoTerra" position="23 3 0" radius="1.2" src="#texturaTerra"
+                material="repeat: 1 1"></a-sphere>
+            <a-animation attribute="rotation" dur="7000" to="0 360 0" repeat="indefinite"></a-animation>
+        </a-entity>
+
+        <!-- Desenho de Marte -->
+        <a-entity id="marte">
+            <a-sphere id="CorpoMarte" position="31 3 0" radius="0.8" src="#texturaMarte"
+                material="repeat: 1 1"></a-sphere>
+            <a-animation attribute="rotation" dur="8000" to="0 360 0" repeat="indefinite"></a-animation>
+        </a-entity>
+
+
+        <!-- Desenho de Jupiter -->
+        <a-entity id="jupiter">
+            <a-sphere id="CorpoJupiter" position="42 3 0" radius="3.0" src="#texturaJupiter"
+                material="repeat: 1 1"></a-sphere>
+            <a-animation attribute="rotation" dur="9000" to="0 360 0" repeat="indefinite"></a-animation>
+        </a-entity>
+
+
+        <!-- Desenho de Saturno -->
+        <a-entity id="saturno">
+            <!-- Planeta -->
+            <a-sphere id="CorpoSaturno" position="55 3 0" radius="1.5" src="#texturaSaturno"
+                material="repeat: 1 1"></a-sphere>
 
             <!-- Anéis do planeta -->
-            <a-entity id="anel">
-            
-            <a-torus id="AnelSaturno1" position="0 3 0" radius="2.0" radius-tubular="0.04" rotation="90 0 0"
+            <a-torus id="AnelSaturno1" position="55 3 0" radius="2.0" radius-tubular="0.04" rotation="90 0 0"
                 color="#EDD4A7"></a-torus>
-            <a-torus id="AnelSaturno2" position="0 3 0" radius="2.1" radius-tubular="0.04" rotation="90 0 0"
+            <a-torus id="AnelSaturno2" position="55 3 0" radius="2.1" radius-tubular="0.04" rotation="90 0 0"
                 color="#C48E39"></a-torus>
-            <a-torus id="AnelSaturno3" position="0 3 0" radius="2.2" radius-tubular="0.04" rotation="90 0 0"
+            <a-torus id="AnelSaturno3" position="55 3 0" radius="2.2" radius-tubular="0.04" rotation="90 0 0"
                 color="#CF9B40"></a-torus>
-            <a-torus id="AnelSaturno4" position="0 3 0" radius="2.3" radius-tubular="0.04" rotation="90 0 0"
+            <a-torus id="AnelSaturno4" position="55 3 0" radius="2.3" radius-tubular="0.04" rotation="90 0 0"
                 color="#5E4018"></a-torus>
-            <a-torus id="AnelSaturno5" position="0 3 0" radius="2.4" radius-tubular="0.04" rotation="90 0 0"
+            <a-torus id="AnelSaturno5" position="55 3 0" radius="2.4" radius-tubular="0.04" rotation="90 0 0"
                 color="#755735"></a-torus>
-            <a-torus id="AnelSaturno6" position="0 3 0" radius="2.5" radius-tubular="0.04" rotation="90 0 0"
+            <a-torus id="AnelSaturno6" position="55 3 0" radius="2.5" radius-tubular="0.04" rotation="90 0 0"
                 color="#45280C"></a-torus>
-            <a-torus id="AnelSaturno7" position="0 3 0" radius="2.6" radius-tubular="0.04" rotation="90 0 0"
+            <a-torus id="AnelSaturno7" position="55 3 0" radius="2.6" radius-tubular="0.04" rotation="90 0 0"
                 color="#442B05"></a-torus>
 
-            </a-entity>
+            <a-animation attribute="rotation" dur="10000" to="0 360 0" repeat="indefinite"
+                easing="linear"></a-animation>
+        </a-entity>
 
-            <a-animation attribute="rotation" dur="9000" to="0 -360 0" repeat="indefinite" easing="linear"></a-animation>
-            
+        <!-- Desenho de Urano -->
+        <a-entity id="urano">
+            <a-sphere id="CorpoUrano" position="65 3 0" radius="1.0" src="#texturaUrano"
+                material="repeat: 1 1"></a-sphere>
+            <a-animation attribute="rotation" dur="11000" to="0 360 0" repeat="indefinite"></a-animation>
+        </a-entity>
+
+        <!-- Desenho de Netuno -->
+        <a-entity id="netuno">
+            <a-sphere id="CorpoNetuno" position="73 3 0" radius="1.3" src="#texturaNetuno"
+                material="repeat: 1 1"></a-sphere>
+            <a-animation attribute="rotation" dur="12000" to="0 360 0" repeat="indefinite"></a-animation>
         </a-entity>
 
 
-        <!-- Hands. -->
+
+
+
+
+
+
+        <!-- Teleport Controls (corretos) -->
         <a-entity id="teleHand" hand-controls="left"
-            teleport-controls="type: parabolic; collisionEntities: [mixin='voxel'], #ground"></a-entity>
+            teleport-controls="type: parabolic; collisionEntities: #ground"></a-entity>
 
-        <a-entity id="blockHand" hand-controls="right" controller-cursor
-            intersection-spawn="event: click; mixin: voxel"></a-entity>
+        <!-- Movimentação manual com teclas WASD -->
+        <a-entity position="0 10 50" camera wasd-controls look-controls></a-entity>
 
-        <!-- Camera e controle de rotação -->
-        <a-entity position="0 4 5" camera look-controls orbit-controls="target: 0 3 0; autoRotate: true;">
-        </a-entity>
     </a-scene>
 </body>
 
