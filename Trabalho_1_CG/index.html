@@ -53,6 +53,10 @@
             <img id="texturaNetuno"
                 src="https://upload.wikimedia.org/wikipedia/commons/1/1e/Solarsystemscope_texture_2k_neptune.jpg">
 
+            <img id="texturaNebulosa1" src="https://upload.wikimedia.org/wikipedia/commons/2/29/Nebula_carina.jpg">
+            
+            <img id="texturaNebulosa2" src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Eagle_nebula_pillars.jpg">
+
         </a-assets>
 
         <!-- Plano para teleporte -->
@@ -72,7 +76,7 @@
         <a-entity id="sol" >
             <a-sphere id="CorpoSol" position="0 3 0" radius="5.5" src="#texturaSol" material="repeat: 1 1"></a-sphere>
             <a-animation attribute="rotation" dur="13000" to="0 360 0" repeat="indefinite" easing="linear"></a-animation>
-           
+            <a-light type="ambient" color="#555"></a-light>
 
         </a-entity>
 
