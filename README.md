@@ -2,6 +2,7 @@
 
 ## Descrição
 Esse projeto foi criado para a disciplina de computação grafica, em que se pede para fazer uma cena uitlizando modelagem em uma linguagem de programação.
+Foi desenvolvido uma cena do sistema solar, tendo presente a modelagem dos planetas e estrelas com suas determinadas texturas. 
 
 ## ✅ Status do Projeto
 🚧 Projeto concluido  🚧
