@@ -54,26 +54,22 @@
 
         </a-assets>
 
-        <!-- Plano para teleporte -->
-        <a-plane id="ground" position="0 0 0" rotation="-90 0 0" width="100" height="100" color="#fff"
-            visible="false"></a-plane>
-
         <!-- Cria o ceu da cena utilizando a textura  -->
         <a-sky id="bg" src="#texturaCeu">
             <a-animation attribute="rotation" dur="300000" to="0 -360 0" repeat="indefinite"
                 easing="linear"></a-animation>
         </a-sky>
 
-
-
-        <!--              CRIAR OS PLANETAS             -->
-
         <!-- Desenho de Sol -->
         <a-entity id="sol">
             <a-sphere id="CorpoSol" position="0 3 0" radius="10.5" src="#texturaSol" material="repeat: 1 1"></a-sphere>
-            <a-animation attribute="rotation" dur="8000" to="0 360 0" repeat="indefinite" easing="linear"></a-animation>
-            <a-light type="ambient" color="#555"></a-light>
+            <a-animation attribute="rotation" dur="16000" to="0 360 0" repeat="indefinite"
+                easing="linear"></a-animation>
+            <a-light type="ambient" intensity="1.5" color="#555"></a-light>
         </a-entity>
+
+
+        <!--              CRIAR OS PLANETAS             -->
 
         <!-- Desenho de Mercurio -->
         <a-entity id="mercurio">
@@ -81,68 +77,57 @@
                 material="repeat: 1 1"></a-sphere>
             <a-animation attribute="rotation" dur="10000" to="0 360 0" repeat="indefinite"
                 easing="linear"></a-animation>
+            <a-torus position="0 3 0" radius="19" radius-tubular="0.05" rotation="90 0 0"
+                material="opacity: 0.1; transparent: true" segments-tubular="1000"></a-torus>
         </a-entity>
 
         <!-- Desenho de Venus -->
         <a-entity id="venus">
             <a-sphere id="CorpoVenus" position="25 3 0" radius="1.8" src="#texturaVenus"
                 material="repeat: 1 1"></a-sphere>
-            <a-animation attribute="rotation" dur="12000" to="0 360 0" repeat="indefinite"
+            <a-animation attribute="rotation" dur="15000" to="0 360 0" repeat="indefinite"
                 easing="linear"></a-animation>
+            <a-torus position="0 3 0" radius="25" radius-tubular="0.05" rotation="90 0 0"
+                material="opacity: 0.1; transparent: true" segments-tubular="1000"></a-torus>
         </a-entity>
-
 
         <!-- Desenho de Terra -->
         <a-entity id="terra">
             <a-sphere id="CorpoTerra" position="31 3 0" radius="2.2" src="#texturaTerra"
                 material="repeat: 1 1"></a-sphere>
-            <a-animation attribute="rotation" dur="14000" to="0 360 0" repeat="indefinite"
+            <a-animation attribute="rotation" dur="20000" to="0 360 0" repeat="indefinite"
                 easing="linear"></a-animation>
-
-            <!-- Satélite no canto direito -->
-            <a-entity id="satelite" position="34 6 0">
-
-                <!-- Corpo principal do satélite -->
-                <a-box width="1" height="0.5" depth="0.5" color="#808080" emissive="#808080"></a-box>
-
-                <!-- Painel solar esquerdo -->
-                <a-box position="-0.8 0 0" width="0.8" height="0.5" depth="0.05" color="#0000FF"></a-box>
-
-                <!-- Painel solar direito -->
-                <a-box position="0.8 0 0" width="0.8" height="0.5" depth="0.05" color="#0000FF"></a-box>
-
-                <!-- Animação de rotação -->
-                <a-animation attribute="rotation" from="0 0 0" to="0 360 0" dur="10000" easing="linear"
-                    repeat="indefinite">
-                </a-animation>
-
-            </a-entity>
+            <a-torus position="0 3 0" radius="31" radius-tubular="0.05" rotation="90 0 0"
+                material="opacity: 0.1; transparent: true" segments-tubular="1000"></a-torus>
         </a-entity>
-
 
         <!-- Desenho de Marte -->
         <a-entity id="marte">
             <a-sphere id="CorpoMarte" position="39 3 0" radius="1.8" src="#texturaMarte"
                 material="repeat: 1 1"></a-sphere>
-            <a-animation attribute="rotation" dur="16000" to="0 360 0" repeat="indefinite"
+            <a-animation attribute="rotation" dur="25000" to="0 360 0" repeat="indefinite"
                 easing="linear"></a-animation>
+            <a-torus position="0 3 0" radius="39" radius-tubular="0.05" rotation="90 0 0"
+                material="opacity: 0.1; transparent: true" segments-tubular="1000"></a-torus>
         </a-entity>
-
 
         <!-- Desenho de Jupiter -->
         <a-entity id="jupiter">
             <a-sphere id="CorpoJupiter" position="50 3 0" radius="4.0" src="#texturaJupiter"
                 material="repeat: 1 1"></a-sphere>
-            <a-animation attribute="rotation" dur="18000" to="0 360 0" repeat="indefinite"
+            <a-animation attribute="rotation" dur="30000" to="0 360 0" repeat="indefinite"
                 easing="linear"></a-animation>
+            <a-torus position="0 3 0" radius="50" radius-tubular="0.05" rotation="90 0 0"
+                material="opacity: 0.1; transparent: true" segments-tubular="1000"></a-torus>
         </a-entity>
-
 
         <!-- Desenho de Saturno -->
         <a-entity id="saturno">
             <!-- Planeta -->
             <a-sphere id="CorpoSaturno" position="63 3 0" radius="2.5" src="#texturaSaturno"
                 material="repeat: 1 1"></a-sphere>
+            <a-torus position="0 3 0" radius="63" radius-tubular="0.05" rotation="90 0 0"
+                material="opacity: 0.1; transparent: true" segments-tubular="1000"></a-torus>
 
             <!-- Anéis do planeta -->
             <a-torus id="AnelSaturno1" position="63 3 0" radius="3.0" radius-tubular="0.04" rotation="90 0 0"
@@ -160,29 +145,31 @@
             <a-torus id="AnelSaturno7" position="63 3 0" radius="3.6" radius-tubular="0.04" rotation="90 0 0"
                 color="#442B05"></a-torus>
 
-            <a-animation attribute="rotation" dur="20000" to="0 360 0" repeat="indefinite"
+            <a-animation attribute="rotation" dur="35000" to="0 360 0" repeat="indefinite"
                 easing="linear"></a-animation>
         </a-entity>
-
 
         <!-- Desenho de Urano -->
         <a-entity id="urano">
             <a-sphere id="CorpoUrano" position="73 3 0" radius="2.0" src="#texturaUrano"
                 material="repeat: 1 1"></a-sphere>
-            <a-animation attribute="rotation" dur="22000" to="0 360 0" repeat="indefinite"
+            <a-animation attribute="rotation" dur="40000" to="0 360 0" repeat="indefinite"
                 easing="linear"></a-animation>
+            <a-torus position="0 3 0" radius="73" radius-tubular="0.05" rotation="90 0 0"
+                material="opacity: 0.1; transparent: true" segments-tubular="1000"></a-torus>
         </a-entity>
-
 
         <!-- Desenho de Netuno -->
         <a-entity id="netuno">
             <a-sphere id="CorpoNetuno" position="81 3 0" radius="2.3" src="#texturaNetuno"
                 material="repeat: 1 1"></a-sphere>
-            <a-animation attribute="rotation" dur="24000" to="0 360 0" repeat="indefinite"
+
+            <a-animation attribute="rotation" dur="45000" to="0 360 0" repeat="indefinite"
                 easing="linear"></a-animation>
+
+            <a-torus position="0 3 0" radius="81" radius-tubular="0.05" rotation="90 0 0"
+                material="opacity: 0.1; transparent: true" segments-tubular="1000"></a-torus>
         </a-entity>
-
-
 
         <!--              CRIAR AS ESTRELAS CADENTES             -->
 
@@ -214,23 +201,58 @@
             </a-animation>
         </a-entity>
 
+
         <!-- Adicionar luz nos objetos  -->
-        <a-light type="point" position="0 5 0" intensity="1.5" color="#F78A22"></a-light>
+        <a-light type="point" position="0 5 0" intensity="1.0" color="#F78A22"></a-light>
         <a-light type="ambient" color="#555"></a-light>
 
-
-        <!-- Teleport Controls  -->
-        <a-entity id="teleHand" hand-controls="left"
-            teleport-controls="type: parabolic; collisionEntities: #ground"></a-entity>
-
         <!-- Movimentação manual com teclas WASD -->
-        <a-entity position="0 10 100" camera wasd-controls look-controls>
+        <a-entity position="0 25 100" camera wasd-controls="acceleration: 400; fly: true" look-controls>
+            <a-cursor material="color: blue; opacity: 0.5"></a-cursor>
         </a-entity>
 
+
+
         <!-- Adicionar musica na animação  -->
-        <a-sound src="interestelar.mp3" autoplay="true" loop="true" volume="2d"></a-sound>
+        <a-sound src="interestelar.mp3" autoplay="true" loop="true" volume="2d"></a-sound> 
+
 
     </a-scene>
+
 </body>
+
+
+<script>
+    document.querySelector('#sol').addEventListener('click', function () {
+        alert('O Sol é uma estrela anã amarela que é a maior do Sistema Solar e a mais próxima da Terra. É a fonte de luz e calor que mantém a vida na Terra. ');
+    });
+    document.querySelector('#mercurio').addEventListener('click', function () {
+        alert('Mercúrio é o planeta mais próximo do Sol e o menor do Sistema Solar. Ele tem uma superfície escura e craterada, e é um dos planetas mais quentes e mais frios do Sistema Solar. ');
+    });
+    document.querySelector('#venus').addEventListener('click', function () {
+        alert('Vênus é o segundo planeta do sistema solar, a partir do Sol, e o mais próximo da Terra. É um planeta rochoso, semelhante à Terra em tamanho e massa.');
+    });
+    document.querySelector('#terra').addEventListener('click', function () {
+        alert('A Terra é o planeta onde vivemos, e é o terceiro planeta mais próximo do Sol. É o maior dos planetas rochosos do Sistema Solar e o único com uma atmosfera com oxigênio suficiente para a vida.');
+    });
+    document.querySelector('#marte').addEventListener('click', function () {
+        alert('Marte é o quarto planeta do Sistema Solar, localizado entre a Terra e Júpiter. É um planeta rochoso, com uma atmosfera rica em dióxido de carbono. ');
+    });
+    document.querySelector('#jupiter').addEventListener('click', function () {
+        alert('Júpiter é o maior planeta do Sistema Solar, tanto em massa quanto em diâmetro. É um gigante gasoso, semelhante a uma estrela, mas que não se tornou massivo o suficiente para começar a queimar. ');
+    });
+    document.querySelector('#saturno').addEventListener('click', function () {
+        alert('Saturno é o sexto planeta do Sistema Solar e o segundo maior, depois de Júpiter. É um gigante gasoso, com uma superfície composta principalmente por hidrogênio e hélio. ');
+    });
+    document.querySelector('#urano').addEventListener('click', function () {
+        alert('Urano é um planeta gasoso do Sistema Solar, o sétimo a partir do Sol. É o terceiro maior planeta do sistema e tem uma cor azul-esverdeada. ');
+    });
+
+    document.querySelector('#netuno').addEventListener('click', function () {
+        alert('Netuno é o oitavo planeta do Sistema Solar, sendo o mais distante do Sol. É um gigante gasoso e gelado, com uma temperatura média de -223 ºC.');
+    });
+
+
+</script>
 
 </html>
